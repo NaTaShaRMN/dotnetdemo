@@ -29,7 +29,7 @@ namespace todolist.Controllers
 
         // GET: api/Freshers/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Fresher>> GetFresher(Guid id)
+        public async Task<ActionResult<Fresher>> GetFresher(string id)
         {
             var fresher = await _context.Fresher.FindAsync(id);
 
@@ -45,7 +45,7 @@ namespace todolist.Controllers
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutFresher(Guid id, Fresher fresher)
+        public async Task<IActionResult> PutFresher(string id, Fresher fresher)
         {
             if (id != fresher.FresherId)
             {
@@ -87,7 +87,7 @@ namespace todolist.Controllers
 
         // DELETE: api/Freshers/5
         [HttpDelete("{id}")]
-        public async Task<ActionResult<Fresher>> DeleteFresher(Guid id)
+        public async Task<ActionResult<Fresher>> DeleteFresher(string id)
         {
             var fresher = await _context.Fresher.FindAsync(id);
             if (fresher == null)
@@ -101,7 +101,7 @@ namespace todolist.Controllers
             return fresher;
         }
 
-        private bool FresherExists(Guid id)
+        private bool FresherExists(string id)
         {
             return _context.Fresher.Any(e => e.FresherId == id);
         }

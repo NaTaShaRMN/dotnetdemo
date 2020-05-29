@@ -85,6 +85,7 @@ namespace todolist.Models
 
                 entity.Property(e => e.FresherId)
                     .HasColumnName("FresherID")
+                    .HasColumnType("varchar(255)")
                     .HasComment("Khóa chính")
                     .HasCharSet("utf8")
                     .HasCollation("utf8_general_ci");
@@ -117,7 +118,7 @@ namespace todolist.Models
 
             OnModelCreatingPartial(modelBuilder);
         }
-        
+
         partial void OnModelCreatingPartial(ModelBuilder modelBuilder);
     }
 }
